@@ -1,13 +1,30 @@
-import Test from './components/Test';
-import NewsProvider from './context/NewsProvider';
+import { Typography, Container, Grid } from '@mui/material';
+import Articles from './components/Articles';
+import FormCategory from './components/FormCategory';
+import { ArticlesProvider } from './context/ArticlesProvider';
 
 const App = () => {
 	return (
-		<div>
-			<NewsProvider>
-				<Test />
-			</NewsProvider>
-		</div>
+		<ArticlesProvider>
+			<Container>
+				<header>
+					<Typography variant='h3' align='center' marginY={5}>
+						Search Articles
+					</Typography>
+				</header>
+				<Grid
+					container
+					direction='row'
+					justifyItems='center'
+					alignItems='center'
+				>
+					<Grid item xs={12} md={6} lg={4}>
+						<FormCategory />
+					</Grid>
+				</Grid>
+				<Articles />
+			</Container>
+		</ArticlesProvider>
 	);
 };
 
